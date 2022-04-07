@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+.logo-title {
+    font-family: 'Varela Round', sans-serif;
+    font-size: 25px;
+    font-weight: 900;
+}
+
+#menu-selection {
+    width: 40%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-top: 15px;
+}
