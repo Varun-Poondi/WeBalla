@@ -18,10 +18,11 @@ function Header() {
   return (
     <header className={`fixed w-full z-30 md:bg-opacity-90 transition duration-300 ease-in-out ${!top && 'bg-white blur shadow-lg'}`}>
       <ul id="menu-selection" className="flex flex-grow justify-center flex-wrap items-center">
-        <Link to="/" className="font-small text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out">Home</Link>
-        <Link to="/" className="font-small text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out">Playground</Link>
-        <Link to="/" className="font-small text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out">Pricing</Link>
-        <Link to="/" className="font-small text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out">About</Link>
+        <Link to="/marketplace" className="font-small text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out">Marketplace</Link>
+        <Link to="/leaderboards" className="font-small text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out">Leaderboards</Link>
+        <Link to="/trends" className="font-small text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out">Trends</Link>
+        <Link to="/news" className="font-small text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out">News</Link>
+        <Link to="/profile" className="font-small text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out">Profile</Link>
       </ul>
       <div className="max-w-6xl mx-auto px-5 sm:px-6">
         <div className="flex items-center justify-between h-16 md:h-20">
@@ -43,7 +44,7 @@ function Header() {
             </Link>
           </div>
 
-          <h1 className="logo-title">romi</h1>
+          <h1 className="logo-title">weballa</h1>
 
           {/* Site navigation */}
           <nav className="flex flex-grow">

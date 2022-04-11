@@ -15,6 +15,12 @@ import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import ResetPassword from './pages/ResetPassword';
 
+import Profile from './menuPages/Profile/Profile'
+import Trends from './menuPages/Trends/Trends'
+import News from './menuPages/News/News'
+import Marketplace from './menuPages/Marketplace/Marketplace'
+import Leaderboards from './menuPages/Leaderboards/Leaderboards'
+
 function App() {
 
   const location = useLocation();
@@ -49,6 +55,21 @@ function App() {
         </Route>
         <Route path="/reset-password">
           <ResetPassword />
+        </Route>
+        <Route path="/profile">
+          <Profile />
+        </Route>
+        <Route path="/trends">
+          <Trends />
+        </Route>
+        <Route path="/news">
+          <News />
+        </Route>
+        <Route path="/marketplace">
+          <Marketplace />
+        </Route>
+        <Route path="/leaderboards">
+          <Leaderboards />
         </Route>
       </Switch>
     </>
