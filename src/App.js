@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { AuthProvider } from './AuthContext'
 import {
   Switch,
   Route,
@@ -44,33 +45,35 @@ function App() {
   return (
     <>
       <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/signin">
-          <SignIn />
-        </Route>
-        <Route path="/signup">
-          <SignUp />
-        </Route>
-        <Route path="/reset-password">
-          <ResetPassword />
-        </Route>
-        <Route path="/profile">
-          <Profile />
-        </Route>
-        <Route path="/trends">
-          <Trends />
-        </Route>
-        <Route path="/news">
-          <News />
-        </Route>
-        <Route path="/marketplace">
-          <Marketplace />
-        </Route>
-        <Route path="/leaderboards">
-          <Leaderboards />
-        </Route>
+        <AuthProvider>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/signin">
+            <SignIn />
+          </Route>
+          <Route path="/signup">
+            <SignUp />
+          </Route>
+          <Route path="/reset-password">
+            <ResetPassword />
+          </Route>
+          <Route path="/profile">
+            <Profile />
+          </Route>
+          <Route path="/trends">
+            <Trends />
+          </Route>
+          <Route path="/news">
+            <News />
+          </Route>
+          <Route path="/marketplace">
+            <Marketplace />
+          </Route>
+          <Route path="/leaderboards">
+            <Leaderboards />
+          </Route>
+          </AuthProvider>
       </Switch>
     </>
   );
