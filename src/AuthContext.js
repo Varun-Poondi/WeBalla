@@ -82,7 +82,6 @@ export function AuthProvider({ children }) {
           var user = result.user;
           console.log("user", user);
           console.log("result", result);
-        
         })
         .catch(function(error) {
           console.log(error);

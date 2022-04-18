@@ -11,6 +11,7 @@ function Leaderboards() {
 
       {/*  Page content */}
       <main className="flex-grow">
+      
         <h1>hello from leaderboards</h1>
         
 
