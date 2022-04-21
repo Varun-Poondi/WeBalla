@@ -4,7 +4,8 @@
 /node_modules
 /.pnp
 .pnp.js
-
+backend/scrape_prem_players/tmp
+backend/scrape_prem_players/node_modules
 # testing
 /coverage
 
