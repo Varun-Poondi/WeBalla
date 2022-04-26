@@ -58,6 +58,34 @@ export function AuthProvider({ children }) {
         } 
     }
 
+    const getLeaderBoard = async () => {
+
+      let userBalanceArr = []
+      for (let i = 0; i < 10; i++) {
+        userBalanceArr.push({balance: 0, name: ''})
+      }
+
+      const querySnapshot = await db.collection('users').get()
+      for (const documentSnapshot of querySnapshot.docs) {
+          const data = documentSnapshot.data()
+          console.log(data);
+
+          for (let a = 0; a < 10; a++) {
+            if (data.balance > userBalanceArr[a].balance) {
+              for (let b = 9; b > a; b--) {
+                userBalanceArr[b] = userBalanceArr[b - 1];
+              }
+              userBalanceArr[a] = {balance: data.balance, name: data.name}
+              break;
+            }
+          }
+          //userBalanceArr.push({balance: data.balance, name: data.name})
+      }
+
+      console.log(userBalanceArr)
+      return userBalanceArr
+    }
+
     // if there is a user on load, update currentUser
     useEffect(() => {
         stateChange()
@@ -67,6 +95,7 @@ export function AuthProvider({ children }) {
         setCurrentUser(user)
         console.log("in useEffect, user:", user)
         createUserDocument(user)
+        getLeaderBoard()
 
         if (user) {
             history.push('/marketplace')
@@ -95,7 +124,8 @@ export function AuthProvider({ children }) {
     const value = {
         currentUser,
         googleOauth,
-        signOut
+        signOut,
+        getLeaderBoard
     }
 
     // every page will have access to data in value, AuthContext.Provider wrapped around children, which is every component inside AuthContext in app.js
