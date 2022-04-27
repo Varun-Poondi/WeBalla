@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^13.1.8",
     "aos": "^3.0.0-beta.6",
     "autoprefixer": "^9.8.6",
+    "axios": "^0.26.1",
     "cruip-js-toolkit": "^1.0.3",
     "firebase": "^9.6.11",
     "node-sass": "^5.0.0",

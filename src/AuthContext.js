@@ -58,6 +58,24 @@ export function AuthProvider({ children }) {
         } 
     }
 
+    const updateNewsArticles = async(news) =>{
+      for(let i =0; i < news.length; i++){
+        if(!news[i]){
+          return;
+        }
+        const newsRef = db.doc(`news/${String(news[i].articleTitle).replace("/"," ")}`);
+        const articleExists = newsRef.get();
+  
+        if(!(articleExists).exists){
+          try{
+            await newsRef.set(news[i]);
+          }catch(error){
+            console.log('Error in creating news article', error);
+          }
+        }
+      }
+    }
+
     const getLeaderBoard = async () => {
 
       let userBalanceArr = []
@@ -125,7 +143,8 @@ export function AuthProvider({ children }) {
         currentUser,
         googleOauth,
         signOut,
-        getLeaderBoard
+        getLeaderBoard,
+        updateNewsArticles
     }
 
     // every page will have access to data in value, AuthContext.Provider wrapped around children, which is every component inside AuthContext in app.js
