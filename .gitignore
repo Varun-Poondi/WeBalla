@@ -6,6 +6,7 @@
 .pnp.js
 backend/scrape_prem_players/tmp
 backend/scrape_prem_players/node_modules
+backend/scrape_prem_players/results.json
 # testing
 /coverage
 

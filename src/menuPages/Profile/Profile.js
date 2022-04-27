@@ -18,7 +18,7 @@ function Profile() {
       {/*  Page content */}
       <main>
         <div className="flex justify-center">
-          <p className="text-5xl">Profile</p>
+          <p className="text-5xl"><strong>Profile</strong></p>
         </div>
         <div className="flex space-x-4">
           <div className="pl-10 pr-10">
