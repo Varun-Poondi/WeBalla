@@ -76,6 +76,21 @@ export function AuthProvider({ children }) {
       }
     }
 
+    const getBalance = async (user) => {
+      if (!user) {
+        return;
+      }
+
+      const userRef = db.doc(`users/${user.email}`)
+      const snapshot = userRef.get()
+    
+      if ((await snapshot).exists) {
+        let document = await db.doc(`users/${user.email}`).get()
+        return document.data().balance
+      }
+
+    }
+
     const getLeaderBoard = async () => {
 
       let userBalanceArr = []
@@ -116,7 +131,13 @@ export function AuthProvider({ children }) {
         getLeaderBoard()
 
         if (user) {
-            history.push('/marketplace')
+          // checks current path to make sure redirection only occurs when signing in
+          let currentPath = (window.location.href).split('/').slice(-1)[0]
+          console.log('CURRENT PATH: *' + currentPath + '*')
+          if (currentPath === 'signin' || currentPath === 'signup') {
+            history.push('/profile')
+          }
+            
         }
         
       })
@@ -144,7 +165,8 @@ export function AuthProvider({ children }) {
         googleOauth,
         signOut,
         getLeaderBoard,
-        updateNewsArticles
+        updateNewsArticles,
+        getBalance
     }
 
     // every page will have access to data in value, AuthContext.Provider wrapped around children, which is every component inside AuthContext in app.js

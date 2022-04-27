@@ -1,13 +1,31 @@
-import React from 'react';
+import React,  { useContext, useEffect, useState } from 'react';
 import Header from '../../partials/Header';
 import varunPic from '../../images/Comet Card Photo.png'
+import { AuthContext } from '../../AuthContext'
 
-
-
-
+import { useHistory } from 'react-router-dom';
 
 
 function Profile() {
+
+  const { currentUser, getBalance } = useContext(AuthContext);
+
+  const history = useHistory();
+
+  const [userName, setUserName] = useState('')
+  const [balance, setBalance] = useState(0)
+
+  useEffect(async () => {
+    if (!currentUser) {
+        history.push('/signin')
+    }
+
+    //setUserName(currentUser.displayName)
+    let currBalance = await getBalance(currentUser)
+    setBalance(currBalance)
+  }, [])
+
+
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
 
@@ -36,7 +54,12 @@ function Profile() {
               <div className="pt-10 flex justify-center max-w-3xl rounded overflow-hidden shadow-lg">
                 <div className="px-6 py-4">
                   <div className="font-bold text-xl mb-2">
-                    <p className="text-5xl">Username: Varun Poondi</p>
+                    
+                    {currentUser ? (
+                      <p className="text-5xl">Username: {currentUser.displayName}</p>
+                    ) : (
+                      <p className="text-5xl"></p>
+                    )}
                   </div>
                 </div>
               </div>
@@ -45,7 +68,11 @@ function Profile() {
               <div className="pt-10 flex justify-center max-w-3xl rounded overflow-hidden shadow-lg">
                 <div className="px-6 py-4">
                   <div className="font-bold text-xl mb-2">
-                    <p className="text-5xl">Balance: $68,072.32</p>
+                    {currentUser ? (
+                      <p className="text-5xl">Balance: {balance}</p>
+                    ) : (
+                      <p className="text-5xl">Balance: </p>
+                    )}
                   </div>
                 </div>
               </div>
