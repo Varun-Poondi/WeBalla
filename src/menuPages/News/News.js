@@ -1,4 +1,3 @@
-import { stringify } from 'postcss';
 import React, {useEffect, useContext, useState, useRef} from 'react';
 import { AuthContext } from '../../AuthContext'
 import Header from '../../partials/Header';
@@ -12,7 +11,7 @@ function News() {
     alert("News has been pulled");
     updateNewsArticles(pulledNews);
   }
-  
+
   const { getNewsArticles } = useContext(AuthContext);
 
   const [news, setNews] = useState([]);
