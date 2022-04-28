@@ -76,6 +76,28 @@ export function AuthProvider({ children }) {
       }
     }
 
+    const getNewsArticles = async(inorder) =>{
+      const newsQuerySnapshot = await db.collection('news').get();
+
+      let newsArr = [];
+
+      for (const documentSnapshot of newsQuerySnapshot.docs) {
+          newsArr.push(documentSnapshot.data())
+      }
+      let results = [];
+      if(inorder){
+        for(let i = 0; i < 20; i++){
+          results.push(newsArr[i]);
+        }
+      }else{
+        let len = newsArr.length;
+        for(let i = len-1; i>=0; i--){
+          results.push(newsArr[i]);
+        }
+      }
+      return results;
+    }
+
     const getBalance = async (user) => {
       if (!user) {
         return;
@@ -166,7 +188,8 @@ export function AuthProvider({ children }) {
         signOut,
         getLeaderBoard,
         updateNewsArticles,
-        getBalance
+        getBalance,
+        getNewsArticles
     }
 
     // every page will have access to data in value, AuthContext.Provider wrapped around children, which is every component inside AuthContext in app.js
