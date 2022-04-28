@@ -12,31 +12,8 @@ function News() {
     alert("News has been pulled");
     updateNewsArticles(pulledNews);
   }
-  const norm = async() =>{
-    return await getNewsArticles(true);
-  } 
-  const rev = async() =>{
-    return await getNewsArticles(false);
-  } 
-
-  const newsAr = norm;
-  const newsr = rev;
   
-  let inorder = true;
-
-  const orderByLatest = async() => {
-    inorder = true;
-  }
-
-  const orderByOldest = async() => {
-    inorder = false;
-    
-  }
-
   const { getNewsArticles } = useContext(AuthContext);
-  async function display(item) {
-    alert(await item.contents);
-  }
 
   const [news, setNews] = useState([]);
 
