@@ -1,4 +1,4 @@
-import React, {useEffect, useContext, useState, useRef} from 'react';
+import React, {useEffect, useContext, useState} from 'react';
 import { AuthContext } from '../../AuthContext'
 import Header from '../../partials/Header';
 import callNews from './pullNews';
