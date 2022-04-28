@@ -18,7 +18,6 @@ function News() {
 
   useEffect( async () => {
     getNews(true);
-    console.log("useEffect ran ")
   }, [])
 
   async function getNews(inorder){
@@ -53,7 +52,6 @@ function News() {
             news.map((item, i) =>
               <div onClick={() => alert('\n' + (item.content) + '\n\n' + 'Published: ' + item.datePublished + '\n' + item.link)}  className="p-7 rounded-lg border shadow mt-2 cursor-pointer mb-5">
                 <div className="flex w-full">
-                  {/* <div className="text-2xl w-3/4 text-gray-700"><span className="px-2 py-3/2 mr-2 bg-blue-200 rounded font-bold">{'*'}</span>{item.articleTitle}</div> */}
                   <div className="text-2xl w-5/6 text-gray-700">
                     <span className="px-2 py-3/2 mr-2 bg-blue-200 rounded font-extrabold">{'see more'}</span>{item.articleTitle}
                     <p class="text-xs text-slate-500">{item.description}</p>
