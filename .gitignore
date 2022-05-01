@@ -5,8 +5,10 @@
 /.pnp
 .pnp.js
 
-/src/menuPages/Marketplace/backend
+src/menuPages/Marketplace/backend/scrape_prem_players/node_modules
+src/menuPages/Marketplace/backend/scrape_prem_players/tmp
 # testing
+
 /coverage
 
 # production
