@@ -62,7 +62,6 @@ function News() {
           }
         
       </main>
-
     </div>
   );
 }

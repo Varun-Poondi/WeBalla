@@ -4,9 +4,8 @@
 /node_modules
 /.pnp
 .pnp.js
-backend/scrape_prem_players/tmp
-backend/scrape_prem_players/node_modules
-backend/scrape_prem_players/results.json
+
+/src/menuPages/Marketplace/backend
 # testing
 /coverage
 

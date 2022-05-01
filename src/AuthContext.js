@@ -110,7 +110,6 @@ export function AuthProvider({ children }) {
         let document = await db.doc(`users/${user.email}`).get()
         return document.data().balance
       }
-
     }
 
     const getLeaderBoard = async () => {
@@ -140,6 +139,39 @@ export function AuthProvider({ children }) {
       console.log(userBalanceArr)
       return userBalanceArr
     }
+
+    const setPlayers = async(data) => {
+      let players = [].concat(...data)
+      for(let i = 0; i < players.length; i++){
+        if(players[i] == "Null"){
+          return;
+        }
+        const playerRef = db.doc(`players/${String(players[i].Name)}`)
+        const playerExists = playerRef.get();
+
+        if(!(playerExists).exists){
+          try{
+            await playerRef.set(players[i]);
+          }catch(error){
+            console.log('There was an issue adding player' + players[i].Name, error);
+          }
+        }
+      }
+    }
+
+    const getPlayers = async () => {
+      const getPlayers = await db.collection('players').get();
+
+      let players = [];
+      for (const documentSnapshot of getPlayers.docs) {
+          players.push(documentSnapshot.data())
+      }
+      return players;
+    }
+
+
+
+
 
     // if there is a user on load, update currentUser
     useEffect(() => {
@@ -189,7 +221,9 @@ export function AuthProvider({ children }) {
         getLeaderBoard,
         updateNewsArticles,
         getBalance,
-        getNewsArticles
+        getNewsArticles,
+        setPlayers,
+        getPlayers
     }
 
     // every page will have access to data in value, AuthContext.Provider wrapped around children, which is every component inside AuthContext in app.js
