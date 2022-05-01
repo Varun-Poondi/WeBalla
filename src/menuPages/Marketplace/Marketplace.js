@@ -21,6 +21,8 @@ function Marketplace() {
   //   getAllPlayers();
   // }, []) // run when page first loads
 
+
+  // just parsing through json file without the react stuff (look commented code above for ref)
   let players = [].concat(...playerResults)
   console.log(players);
   
