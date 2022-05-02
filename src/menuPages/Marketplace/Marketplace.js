@@ -60,15 +60,14 @@ function Marketplace() {
           
 
           {/* Player Display Section */}
-          <div className="row-span-3 col-span-11">
+          <div className="row-span-3 col-span-11 overflow-scroll h-screen">
             <div className="p-7 rounded-lg border shadow mt-2">             
               <h1 className=" text-center h1 text-5xl md:text-30xl mb-5">Player Database</h1>
               {/* grid grid-flow-row-dense grid-cols-4 */}
               <div className="flex flex-wrap">
                 {
                   players.map((player, i) =>
-                  
-                    <href className="p-7 rounded-lg border shadow mt-2 mb-2 ml-2 mr-2 hover:bg-gray-100">  
+                    <div className="p-7 rounded-lg border shadow mt-2 mb-2 ml-2 mr-2 hover:bg-gray-100">  
                       <div className="flex flex-wrap text-lg">
                         <div className="">
                           <span className=" px-2 py-3/2 mr-2 bg-indigo-200 rounded font-extrabold">{player.Name}</span>
@@ -95,8 +94,7 @@ function Marketplace() {
                           </div>
                         </div>
 
-                    </href>
-                  
+                    </div>
                   )
                 }
                 </div>

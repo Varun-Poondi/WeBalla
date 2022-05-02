@@ -22,6 +22,7 @@ import News from './menuPages/News/News'
 import Marketplace from './menuPages/Marketplace/Marketplace'
 import Leaderboards from './menuPages/Leaderboards/Leaderboards'
 
+
 function App() {
 
   const location = useLocation();
