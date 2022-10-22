@@ -21,6 +21,8 @@ function Marketplace() {
   //   getAllPlayers();
   // }, []) // run when page first loads
 
+
+  // just parsing through json file without the react stuff (look commented code above for ref)
   let players = [].concat(...playerResults)
   console.log(players);
   
@@ -65,8 +67,7 @@ function Marketplace() {
               <div className="flex flex-wrap">
                 {
                   players.map((player, i) =>
-                  
-                    <href className="p-7 rounded-lg border shadow mt-2 mb-2 ml-2 mr-2 hover:bg-gray-100">  
+                    <div className="p-7 rounded-lg border shadow mt-2 mb-2 ml-2 mr-2 hover:bg-gray-100">  
                       <div className="flex flex-wrap text-lg">
                         <div className="">
                           <span className=" px-2 py-3/2 mr-2 bg-indigo-200 rounded font-extrabold">{player.Name}</span>
@@ -93,8 +94,7 @@ function Marketplace() {
                           </div>
                         </div>
 
-                    </href>
-                  
+                    </div>
                   )
                 }
                 </div>

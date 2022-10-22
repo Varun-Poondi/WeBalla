@@ -13,6 +13,7 @@ function Header() {
 
   function onSignOutClick() {
     signOut()
+    console.log("Sign out has been pressed")
     history.push('/')
   }
 
