@@ -58,7 +58,7 @@ function Marketplace() {
           
 
           {/* Player Display Section */}
-          <div className="row-span-3 col-span-11">
+          <div className="row-span-3 col-span-11 overflow-scroll h-screen">
             <div className="p-7 rounded-lg border shadow mt-2">             
               <h1 className=" text-center h1 text-5xl md:text-30xl mb-5">Player Database</h1>
               {/* grid grid-flow-row-dense grid-cols-4 */}
